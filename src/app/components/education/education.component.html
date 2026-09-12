@@ -1,0 +1,96 @@
+<section class="section section--alt" id="education">
+  <div class="container">
+    <app-section-header
+      [index]="section.index"
+      [eyebrow]="section.eyebrow"
+      [title]="section.title"
+      [lead]="section.lead"
+      appReveal
+    />
+
+    <div class="edu__grid">
+      <div class="edu__main">
+        @for (item of data.education; track item.degree) {
+          <article class="card degree" [appReveal]="$index * 80">
+            <span class="degree__icon" aria-hidden="true">
+              <app-icon name="graduation-cap" [size]="20" />
+            </span>
+
+            <div class="degree__body">
+              <div class="degree__head">
+                <h3 class="degree__title">{{ item.degree }}</h3>
+                @if (item.current) {
+                  <span class="tag tag--accent">In progress</span>
+                }
+              </div>
+
+              <p class="degree__field">{{ item.field }}</p>
+
+              <p class="degree__meta">
+                <span class="degree__school">{{ item.institution }}</span>
+                <span class="degree__sep" aria-hidden="true"></span>
+                <span>{{ item.location }}</span>
+              </p>
+
+              <p class="degree__period">{{ item.period }}</p>
+
+              @if (item.achievements.length) {
+                <ul class="degree__achievements">
+                  @for (achievement of item.achievements; track achievement) {
+                    <li>
+                      <app-icon name="award" [size]="14" />
+                      <span>{{ achievement }}</span>
+                    </li>
+                  }
+                </ul>
+              }
+            </div>
+          </article>
+        }
+      </div>
+
+      <section class="card panel" appReveal>
+        <h3 class="panel__title">
+          <app-icon name="award" [size]="16" />
+          Awards &amp; Certifications
+        </h3>
+        <ul class="panel__list">
+          @for (credential of data.credentials; track credential.title) {
+            <li class="credential">
+              <span class="credential__icon" aria-hidden="true">
+                <app-icon [name]="credential.icon" [size]="15" />
+              </span>
+              <span class="credential__body">
+                <span class="credential__title">{{ credential.title }}</span>
+                @if (credential.issuer) {
+                  <span class="credential__meta">{{ credential.issuer }}</span>
+                }
+                <span class="credential__detail">{{ credential.detail }}</span>
+              </span>
+            </li>
+          }
+        </ul>
+      </section>
+    </div>
+
+    <section class="card panel panel--wide" [appReveal]="80">
+      <h3 class="panel__title">
+        <app-icon name="globe" [size]="16" />
+        Languages
+      </h3>
+      <ul class="languages">
+        @for (language of data.languages; track language.name) {
+          <li class="language">
+            <span class="language__name">{{ language.name }}</span>
+            <span class="language__level">{{ language.level }}</span>
+            <span class="language__dots" aria-hidden="true">
+              @for (level of levels; track level) {
+                <span class="language__dot" [class.is-on]="level <= language.proficiency"></span>
+              }
+            </span>
+          </li>
+        }
+      </ul>
+    </section>
+  </div>
+</section>

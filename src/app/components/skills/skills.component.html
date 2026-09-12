@@ -1,0 +1,31 @@
+<section class="section" id="skills">
+  <div class="container">
+    <app-section-header
+      [index]="section.index"
+      [eyebrow]="section.eyebrow"
+      [title]="section.title"
+      [lead]="section.lead"
+      appReveal
+    />
+
+    <div class="skills__grid">
+      @for (group of data.skills; track group.category) {
+        <article class="card group" [appReveal]="$index * 70">
+          <header class="group__head">
+            <span class="group__icon" aria-hidden="true">
+              <app-icon [name]="group.icon" [size]="18" />
+            </span>
+            <h3 class="group__title">{{ group.category }}</h3>
+            <span class="group__count" aria-hidden="true">{{ group.items.length }}</span>
+          </header>
+
+          <ul class="group__items">
+            @for (item of group.items; track item) {
+              <li class="tag">{{ item }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>

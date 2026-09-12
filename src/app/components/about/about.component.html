@@ -1,0 +1,31 @@
+<section class="section section--alt" id="about">
+  <div class="container">
+    <app-section-header
+      [index]="section.index"
+      [eyebrow]="section.eyebrow"
+      [title]="section.title"
+      [lead]="section.lead"
+      appReveal
+    />
+
+    <div class="about__grid">
+      <div class="about__copy" appReveal>
+        @for (paragraph of data.about.paragraphs; track $index) {
+          <p class="about__paragraph">{{ paragraph }}</p>
+        }
+      </div>
+
+      <ul class="about__highlights">
+        @for (highlight of data.about.highlights; track highlight.title) {
+          <li class="card highlight" [appReveal]="$index * 80">
+            <span class="highlight__icon" aria-hidden="true">
+              <app-icon [name]="highlight.icon" [size]="19" />
+            </span>
+            <h3 class="highlight__title">{{ highlight.title }}</h3>
+            <p class="highlight__text">{{ highlight.description }}</p>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

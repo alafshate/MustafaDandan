@@ -1,0 +1,276 @@
+.edu__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(20px, 3vw, 32px);
+  align-items: start;
+}
+
+.edu__main {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+}
+
+/* ─── Degree card ─────────────────────────────────────────────────────────── */
+.degree {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 18px;
+  padding: 24px 24px 22px;
+
+  &:hover {
+    border-color: var(--border-strong);
+  }
+}
+
+.degree__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-ring);
+  border-radius: var(--radius-md);
+}
+
+.degree__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.degree__title {
+  font-size: 1.08rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.degree__field {
+  margin-top: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.degree__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin-top: 10px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.degree__school {
+  font-weight: 500;
+}
+
+.degree__sep {
+  width: 4px;
+  height: 4px;
+  background: var(--border-strong);
+  border-radius: 50%;
+}
+
+.degree__period {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}
+
+.degree__achievements {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 15px;
+  border-top: 1px dashed var(--border);
+
+  li {
+    display: grid;
+    grid-template-columns: 14px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+  }
+
+  app-icon {
+    margin-top: 3px;
+    color: var(--accent-2);
+  }
+}
+
+/* ─── Side panels ─────────────────────────────────────────────────────────── */
+.panel {
+  padding: 22px 22px 18px;
+}
+
+.panel__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
+
+  app-icon {
+    color: var(--accent);
+  }
+}
+
+.panel__list {
+  display: grid;
+  gap: 4px;
+}
+
+/* ─── Credentials ─────────────────────────────────────────────────────────── */
+.credential {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 13px;
+  align-items: start;
+  padding: 11px 0;
+
+  & + & {
+    border-top: 1px dashed var(--border);
+  }
+}
+
+.credential__icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: var(--accent-2);
+  background: var(--accent-2-soft);
+  border-radius: var(--radius-xs);
+}
+
+.credential__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.credential__title {
+  font-size: 0.89rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-primary);
+}
+
+.credential__meta {
+  font-size: 0.79rem;
+  color: var(--text-secondary);
+}
+
+.credential__detail {
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  color: var(--text-muted);
+}
+
+/* ─── Languages ───────────────────────────────────────────────────────────── */
+/* Full-width strip under the two columns, so the section stays balanced. */
+.panel--wide {
+  margin-top: 20px;
+}
+
+.languages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.language {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 22px 6px 0;
+
+  & + & {
+    padding-left: 22px;
+    border-left: 1px dashed var(--border);
+  }
+}
+
+.language__name {
+  font-size: 0.9rem;
+  font-weight: 550;
+  color: var(--text-primary);
+}
+
+.language__level {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.language__dots {
+  display: flex;
+  gap: 4px;
+}
+
+.language__dot {
+  width: 7px;
+  height: 7px;
+  background: var(--border-strong);
+  border-radius: 50%;
+}
+
+.language__dot.is-on {
+  background: var(--accent);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 920px) {
+  .edu__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .languages {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .language {
+    padding: 11px 0;
+
+    & + & {
+      padding-left: 0;
+      border-left: 0;
+      border-top: 1px dashed var(--border);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .degree {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    padding: 22px 18px;
+  }
+
+  /* Stacked, so the inline separator would dangle at the end of a line. */
+  .degree__meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+  }
+
+  .degree__sep {
+    display: none;
+  }
+}

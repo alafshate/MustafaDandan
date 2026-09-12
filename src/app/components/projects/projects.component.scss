@@ -1,0 +1,329 @@
+/* ─── Featured case study ─────────────────────────────────────────────────── */
+.study {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  overflow: hidden;
+  margin-bottom: 24px;
+
+  &:hover {
+    border-color: var(--border-strong);
+  }
+}
+
+.study__body {
+  padding: 30px 32px;
+}
+
+.study__flag {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.study__flag-rule {
+  width: 22px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+.study__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.study__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-ring);
+  border-radius: var(--radius-md);
+}
+
+.study__title {
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.study__context {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin-top: 7px;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+}
+
+.study__sep {
+  width: 4px;
+  height: 4px;
+  background: var(--border-strong);
+  border-radius: 50%;
+}
+
+.study__period {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
+
+.study__summary {
+  margin: 20px 0;
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+}
+
+.study__bullets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 32px;
+
+  li {
+    display: grid;
+    grid-template-columns: 14px minmax(0, 1fr);
+    gap: 11px;
+    align-items: start;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+
+  app-icon {
+    margin-top: 4px;
+    color: var(--accent);
+  }
+}
+
+.study__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--border);
+}
+
+.study__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.study__outcome {
+  gap: 6px;
+  white-space: nowrap;
+}
+
+/* ─── Design parameter panel ──────────────────────────────────────────────── */
+.specs {
+  padding: 30px 26px;
+  background: var(--bg-elevated);
+  border-left: 1px solid var(--border);
+}
+
+.specs__title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-bottom: 13px;
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.spec {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 11px 0;
+  border-bottom: 1px dashed var(--border);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.spec__label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.spec__value {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* ─── Project cards ───────────────────────────────────────────────────────── */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 20px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px;
+
+  &:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-strong);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.project__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.project__icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-ring);
+  border-radius: var(--radius-sm);
+}
+
+.project__category {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.project__title {
+  font-size: 1.08rem;
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.project__context {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  color: var(--text-muted);
+}
+
+.project__summary {
+  margin: 14px 0 16px;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+}
+
+.project__bullets {
+  display: grid;
+  gap: 9px;
+  margin-bottom: 18px;
+
+  li {
+    display: grid;
+    grid-template-columns: 5px minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+    font-size: 0.83rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+}
+
+.project__marker {
+  width: 5px;
+  height: 5px;
+  margin-top: 7px;
+  background: var(--accent);
+  transform: rotate(45deg);
+  opacity: 0.85;
+}
+
+.project__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.project__outcome {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 16px;
+  padding-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  color: var(--accent-2);
+  border-top: 1px dashed var(--border);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .study {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .specs {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .specs__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0 28px;
+  }
+
+  .study__bullets {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .study__body {
+    padding: 24px 20px;
+  }
+
+  .specs {
+    padding: 24px 20px;
+  }
+
+  .study__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

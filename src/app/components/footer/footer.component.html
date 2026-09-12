@@ -1,0 +1,71 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="footer__mark" aria-hidden="true">{{ data.personal.initials }}</span>
+        <div>
+          <p class="footer__name">{{ data.personal.name }}</p>
+          <p class="footer__role">{{ data.personal.shortTitle }}</p>
+        </div>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer">
+        <ul>
+          @for (link of data.nav; track link.id) {
+            <li><a [href]="'#' + link.id">{{ link.label }}</a></li>
+          }
+        </ul>
+      </nav>
+
+      <div class="footer__actions">
+        @for (social of data.socials; track social.label) {
+          <a
+            class="footer__icon-link"
+            [href]="social.href"
+            [attr.target]="social.external ? '_blank' : null"
+            [attr.rel]="social.external ? 'noopener' : null"
+            [attr.aria-label]="social.label"
+            [attr.title]="social.label"
+          >
+            <app-icon [name]="social.icon" [size]="17" />
+          </a>
+        }
+
+        <a
+          class="footer__icon-link"
+          [href]="'mailto:' + data.personal.email"
+          [attr.aria-label]="'Email ' + data.personal.name"
+          title="Email"
+        >
+          <app-icon name="mail" [size]="17" />
+        </a>
+
+        @if (data.personal.resumeUrl) {
+          <a
+            class="footer__icon-link"
+            [href]="data.personal.resumeUrl"
+            [attr.download]="data.personal.resumeFileName"
+            target="_blank"
+            rel="noopener"
+            aria-label="Download résumé"
+            title="Résumé"
+          >
+            <app-icon name="download" [size]="17" />
+          </a>
+        }
+      </div>
+    </div>
+
+    <div class="footer__bar">
+      <p class="footer__copy">© {{ year }} {{ data.personal.name }}</p>
+      <p class="footer__location">
+        <app-icon name="map-pin" [size]="13" />
+        {{ data.personal.location }}
+      </p>
+      <a class="footer__top-link" href="#top">
+        Back to top
+        <app-icon name="arrow-up-right" [size]="13" />
+      </a>
+    </div>
+  </div>
+</footer>

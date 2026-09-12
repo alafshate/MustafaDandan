@@ -1,0 +1,115 @@
+<section class="section section--alt" id="projects">
+  <div class="container">
+    <app-section-header
+      [index]="section.index"
+      [eyebrow]="section.eyebrow"
+      [title]="section.title"
+      [lead]="section.lead"
+      appReveal
+    />
+
+    @for (project of featured; track project.id) {
+      <article class="card study" appReveal>
+        <div class="study__body">
+          <p class="study__flag">
+            <span class="study__flag-rule" aria-hidden="true"></span>
+            Featured Project
+          </p>
+
+          <div class="study__head">
+            <span class="study__icon" aria-hidden="true">
+              <app-icon [name]="project.icon" [size]="22" />
+            </span>
+            <div class="study__identity">
+              <h3 class="study__title">{{ project.title }}</h3>
+              <p class="study__context">
+                <span>{{ project.context }}</span>
+                @if (project.period) {
+                  <span class="study__sep" aria-hidden="true"></span>
+                  <span class="study__period">{{ project.period }}</span>
+                }
+              </p>
+            </div>
+          </div>
+
+          <p class="study__summary">{{ project.summary }}</p>
+
+          <ul class="study__bullets">
+            @for (bullet of project.bullets; track bullet) {
+              <li>
+                <app-icon name="check" [size]="14" [strokeWidth]="2.4" />
+                <span>{{ bullet }}</span>
+              </li>
+            }
+          </ul>
+
+          <div class="study__footer">
+            <ul class="study__tech">
+              @for (tech of project.tech; track tech) {
+                <li class="tag">{{ tech }}</li>
+              }
+            </ul>
+            <span class="tag tag--award study__outcome">
+              <app-icon name="award" [size]="13" />
+              {{ project.outcome }}
+            </span>
+          </div>
+        </div>
+
+        @if (project.specs.length) {
+          <aside class="specs" aria-label="Design parameters">
+            <p class="specs__title">
+              <app-icon name="ruler" [size]="14" />
+              Design Parameters
+            </p>
+            <dl class="specs__list">
+              @for (spec of project.specs; track spec.label) {
+                <div class="spec">
+                  <dt class="spec__label">{{ spec.label }}</dt>
+                  <dd class="spec__value">{{ spec.value }}</dd>
+                </div>
+              }
+            </dl>
+          </aside>
+        }
+      </article>
+    }
+
+    <div class="projects__grid">
+      @for (project of others; track project.id) {
+        <article class="card project" [appReveal]="$index * 80">
+          <header class="project__head">
+            <span class="project__icon" aria-hidden="true">
+              <app-icon [name]="project.icon" [size]="19" />
+            </span>
+            <span class="project__category">{{ project.category }}</span>
+          </header>
+
+          <h3 class="project__title">{{ project.title }}</h3>
+          <p class="project__context">{{ project.context }}</p>
+          <p class="project__summary">{{ project.summary }}</p>
+
+          <ul class="project__bullets">
+            @for (bullet of project.bullets; track bullet) {
+              <li>
+                <span class="project__marker" aria-hidden="true"></span>
+                <span>{{ bullet }}</span>
+              </li>
+            }
+          </ul>
+
+          <ul class="project__tech">
+            @for (tech of project.tech; track tech) {
+              <li class="tag">{{ tech }}</li>
+            }
+          </ul>
+
+          <p class="project__outcome">
+            <app-icon name="award" [size]="14" />
+            {{ project.outcome }}
+          </p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

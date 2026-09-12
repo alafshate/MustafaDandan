@@ -1,0 +1,56 @@
+<section class="section" id="experience">
+  <div class="container">
+    <app-section-header
+      [index]="section.index"
+      [eyebrow]="section.eyebrow"
+      [title]="section.title"
+      [lead]="section.lead"
+      appReveal
+    />
+
+    <ol class="timeline">
+      @for (job of data.experience; track job.role + job.period) {
+        <li class="timeline__item" [appReveal]="$index * 90">
+          <div class="timeline__rail" aria-hidden="true">
+            <span class="timeline__node" [class.is-current]="job.current"></span>
+          </div>
+
+          <article class="card job">
+            <header class="job__head">
+              <div class="job__identity">
+                <h3 class="job__role">{{ job.role }}</h3>
+                <p class="job__company">
+                  <span class="job__company-name">{{ job.company }}</span>
+                  <span class="job__sep" aria-hidden="true"></span>
+                  <span>{{ job.location }}</span>
+                </p>
+              </div>
+
+              <div class="job__meta">
+                <span class="job__period">{{ job.period }}</span>
+                <span class="tag" [class.tag--accent]="job.current">{{ job.employmentType }}</span>
+              </div>
+            </header>
+
+            <p class="job__summary">{{ job.summary }}</p>
+
+            <ul class="job__bullets">
+              @for (bullet of job.bullets; track bullet) {
+                <li class="job__bullet">
+                  <app-icon name="check" [size]="14" [strokeWidth]="2.4" />
+                  <span>{{ bullet }}</span>
+                </li>
+              }
+            </ul>
+
+            <ul class="job__tags">
+              @for (tag of job.tags; track tag) {
+                <li class="tag">{{ tag }}</li>
+              }
+            </ul>
+          </article>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

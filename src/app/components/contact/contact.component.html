@@ -1,0 +1,69 @@
+<section class="section" id="contact">
+  <div class="container">
+    <app-section-header
+      [index]="section.index"
+      [eyebrow]="section.eyebrow"
+      [title]="section.title"
+      [lead]="section.lead"
+      appReveal
+    />
+
+    <ul class="contact__channels">
+      @for (channel of data.contactChannels; track channel.label) {
+        <li [appReveal]="$index * 70">
+          <!-- An anchor without href renders as plain, non-interactive text. -->
+          <a
+            class="card channel"
+            [attr.href]="channel.href"
+            [attr.target]="channel.external ? '_blank' : null"
+            [attr.rel]="channel.external ? 'noopener' : null"
+          >
+            <span class="channel__icon" aria-hidden="true">
+              <app-icon [name]="channel.icon" [size]="18" />
+            </span>
+            <span class="channel__label">{{ channel.label }}</span>
+            <span class="channel__value">{{ channel.value }}</span>
+            @if (channel.href) {
+              <span class="channel__arrow" aria-hidden="true">
+                <app-icon [name]="channel.external ? 'arrow-up-right' : 'arrow-right'" [size]="15" />
+              </span>
+            }
+          </a>
+        </li>
+      }
+    </ul>
+
+    <div class="contact__actions" appReveal>
+      <a class="btn btn--primary" [href]="'mailto:' + data.personal.email">
+        <app-icon name="mail" [size]="16" />
+        Send an email
+      </a>
+
+      @if (data.personal.resumeUrl) {
+        <a
+          class="btn btn--ghost"
+          [href]="data.personal.resumeUrl"
+          [attr.download]="data.personal.resumeFileName"
+          target="_blank"
+          rel="noopener"
+        >
+          <app-icon name="download" [size]="16" />
+          Download Résumé
+        </a>
+      }
+
+      @for (social of data.socials; track social.label) {
+        <a
+          class="btn btn--subtle"
+          [href]="social.href"
+          [attr.target]="social.external ? '_blank' : null"
+          [attr.rel]="social.external ? 'noopener' : null"
+        >
+          <app-icon [name]="social.icon" [size]="16" />
+          {{ social.label }}
+          <app-icon name="arrow-up-right" [size]="13" />
+        </a>
+      }
+    </div>
+  </div>
+</section>

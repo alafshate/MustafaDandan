@@ -1,0 +1,94 @@
+.contact__channels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Cells are placed explicitly: auto-placement would push the value into the
+   arrow's column and overlap the label. */
+.channel {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 2px 15px;
+  height: 100%;
+  padding: 20px;
+}
+
+.channel__icon {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-ring);
+  border-radius: var(--radius-sm);
+}
+
+.channel__label {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.channel__value {
+  grid-column: 2;
+  grid-row: 2;
+  overflow-wrap: break-word;
+  font-size: 0.9rem;
+  font-weight: 550;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.channel__arrow {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  transition:
+    color var(--transition),
+    transform var(--transition);
+}
+
+/* Hover affordances only where the card is actually a link. */
+.channel[href]:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-ring);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.channel[href]:hover .channel__arrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+@media (max-width: 760px) {
+  .contact__channels {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+
+  .contact__actions .btn {
+    flex: 1 1 auto;
+  }
+}

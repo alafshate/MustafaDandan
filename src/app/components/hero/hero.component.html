@@ -1,0 +1,105 @@
+<section class="hero" id="top">
+  <div class="hero__backdrop" aria-hidden="true"></div>
+
+  <div class="container hero__container">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <p class="hero__eyebrow">
+          <span class="hero__eyebrow-rule" aria-hidden="true"></span>
+          {{ data.hero.eyebrow }}
+        </p>
+
+        <h1 class="hero__name">{{ data.personal.name }}</h1>
+
+        <p class="hero__title">
+          @for (part of titleParts; track part; let last = $last) {
+            <span>{{ part }}</span>
+            @if (!last) {
+              <span class="hero__title-sep" aria-hidden="true"></span>
+            }
+          }
+        </p>
+
+        <p class="hero__intro">{{ data.hero.intro }}</p>
+
+        <ul class="hero__chips">
+          @for (area of data.hero.focusAreas; track area) {
+            <li class="tag tag--accent">{{ area }}</li>
+          }
+        </ul>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" [href]="'#' + data.hero.primaryCta.targetId">
+            {{ data.hero.primaryCta.label }}
+            <app-icon name="arrow-right" [size]="16" />
+          </a>
+
+          <a class="btn btn--ghost" [href]="'#' + data.hero.secondaryCta.targetId">
+            <app-icon name="mail" [size]="16" />
+            {{ data.hero.secondaryCta.label }}
+          </a>
+
+          @for (social of data.socials; track social.label) {
+            <a
+              class="btn btn--subtle"
+              [href]="social.href"
+              [attr.target]="social.external ? '_blank' : null"
+              [attr.rel]="social.external ? 'noopener' : null"
+            >
+              <app-icon [name]="social.icon" [size]="16" />
+              {{ social.label }}
+              <app-icon name="arrow-up-right" [size]="13" />
+            </a>
+          }
+
+          @if (data.personal.resumeUrl) {
+            <a
+              class="btn btn--subtle"
+              [href]="data.personal.resumeUrl"
+              [attr.download]="data.personal.resumeFileName"
+              target="_blank"
+              rel="noopener"
+            >
+              <app-icon name="download" [size]="16" />
+              Résumé
+            </a>
+          }
+        </div>
+      </div>
+
+      <div class="hero__portrait">
+        <figure class="portrait">
+          <div class="portrait__frame">
+            <img
+              class="portrait__img"
+              [src]="data.personal.profileImage"
+              [alt]="data.personal.profileImageAlt"
+              width="400"
+              height="400"
+              fetchpriority="high"
+              decoding="async"
+            />
+            <span class="portrait__tick portrait__tick--tl" aria-hidden="true"></span>
+            <span class="portrait__tick portrait__tick--tr" aria-hidden="true"></span>
+            <span class="portrait__tick portrait__tick--bl" aria-hidden="true"></span>
+            <span class="portrait__tick portrait__tick--br" aria-hidden="true"></span>
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    <ul class="hero__facts">
+      @for (fact of data.hero.facts; track fact.label) {
+        <li class="fact">
+          <span class="fact__icon" aria-hidden="true">
+            <app-icon [name]="fact.icon" [size]="17" />
+          </span>
+          <span class="fact__body">
+            <span class="fact__label">{{ fact.label }}</span>
+            <span class="fact__value">{{ fact.value }}</span>
+          </span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
