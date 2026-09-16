@@ -42,9 +42,10 @@ async function readContent() {
   if (error) throw new Error(`Invalid portfolio.json: ${error}`);
   return data;
 }
-await mkdir(directory, { recursive: true });
-// Fail clearly on missing/invalid content; never overwrite a mounted volume with seed data.
-await readContent();
+// Persistence failures disable editing, not the public static site. Never replace
+// a missing/invalid saved file with the seed automatically.
+try { await mkdir(directory, { recursive: true }); await readContent(); }
+catch (error) { console.error(`Admin content unavailable: ${error.message}`); }
 const sessions = new Map();
 const attempts = new Map();
 const lifetime = 8 * 60 * 60 * 1000;
@@ -135,8 +136,18 @@ app.get(['/admin', '/admin/'], (req, res, next) => {
   next();
 });
 const browser = path.join(root, 'dist/portfolio/browser');
-app.use(express.static(browser, { index: false }));
-app.get(['/', '/admin', '/admin/', '/admin/login'], (req, res) => res.sendFile(path.join(browser, 'index.html')));
+// Optional self-hosted override of the same static asset URL. GitHub Pages simply
+// serves the build's JSON file. The public Angular app never calls the admin API.
+app.get('/data/portfolio.json', async (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  try { res.json(await readContent()); }
+  catch (error) {
+    console.error(`Serving bundled public content: ${error.message}`);
+    res.sendFile(path.join(browser, 'data/portfolio.json'));
+  }
+});
+app.use(express.static(browser, { index: false, redirect: false }));
+app.get(['/', '/admin', '/admin/', '/admin/login', '/admin/login/'], (req, res) => res.sendFile(path.join(browser, 'index.html')));
 app.use((error, req, res, next) => {
   console.error(error.message);
   res.status(error.status === 413 ? 413 : error.type === 'entity.parse.failed' ? 400 : 500).json({ error: error.status === 413 ? 'Content exceeds 1 MB.' : error.type === 'entity.parse.failed' ? 'Malformed JSON.' : 'Unable to read or save content. Check the server data directory.' });

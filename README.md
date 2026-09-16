@@ -7,14 +7,16 @@ Built with Angular 19 (standalone components, SCSS, no third-party UI dependenci
 
 ```bash
 npm install
-npm start        # Angular at http://localhost:4200 + API at 127.0.0.1:3000
+npm start        # static public portfolio at http://localhost:4200; no backend needed
+npm run start:admin # optional Angular + local admin server
 npm run build    # production build -> dist/portfolio/browser
 npm run server   # serve the built Angular site and API at http://localhost:3000
 ```
 
-The site now requires the Node server and a persistent writable local data directory.
-Static-only hosting (including the old GitHub Pages deployment target) cannot support
-admin saves. Angular's development server proxies `/api` to the Node server.
+The public site is fully static and supports GitHub Pages. Only authenticated admin
+editing requires the optional Node server and a writable local data directory.
+`npm run start:admin` proxies admin API requests and the saved JSON asset to that
+server; ordinary `npm start` serves the bundled assets directly.
 
 ## Editing the content
 
@@ -26,9 +28,16 @@ All fields in the existing content model are editable, including nested arrays;
 use the Add/Remove controls for repeatable entries. Invalid saves show an error and
 leave the saved file intact. Logout ends the session; leaving with unsaved edits warns you.
 
-The public route fetches `/api/portfolio` before rendering its existing components.
-After saving, refresh the public page to see the change. No Angular build or deployment
-is needed. The server validates the entire document, synchronizes a temporary file
+The build copies the canonical JSON to `dist/portfolio/browser/data/portfolio.json`.
+The public route loads `data/portfolio.json` relative to the document base, without
+API requests, credentials, localhost URLs, or a backend dependency. If the request
+fails, times out, or returns malformed content, it logs the cause and uses a validated
+snapshot of the same JSON included in the JavaScript bundle.
+
+On the optional self-hosted server, that same asset URL serves the saved local JSON.
+After saving there, refresh the public page to see the change without rebuilding.
+If persistence becomes unavailable, the server serves the build's static snapshot;
+admin read/write errors remain visible. The server validates the entire document, synchronizes a temporary file
 in the same directory, and atomically renames it to `portfolio.json`. A version check
 rejects stale editor saves. The API never accepts a destination path.
 
@@ -83,6 +92,29 @@ accent is a one-line edit in each block. The visitor's choice is stored in
 
 ## Before going live
 
+### GitHub Pages (public portfolio)
+
+For `https://alafshate.github.io/`, the build and deploy base href is `/`.
+No `deployUrl` override is needed: JS, CSS, images and JSON resolve under that root.
+Publish the **contents of `dist/portfolio/browser`**, including `data/`, `admin/`, and
+`.nojekyll`, to the user site's Pages publishing source. Do not publish the parent
+`dist/portfolio` directory or the source checkout as the site artifact.
+
+`npm run build` also creates `admin/index.html` and `admin/login/index.html` from
+the built entry page. These make direct navigation/refresh work on a file-only host
+without changing the portfolio's section anchors or using hash routing.
+The deployment builder uses this prepared output (`noBuild: true`); `npm run deploy`
+builds it first, then publishes using the configured Git remote. Ensure that remote's
+Pages site is the intended `alafshate.github.io` user site before deploying.
+
+GitHub Pages cannot authenticate admins or write content. `/admin` remains available
+but explains that saving requires the optional self-hosted server. To publish edits
+on GitHub Pages, update the canonical `data/portfolio.json` (or copy your saved file
+there), build, and publish the new static artifact. A save on a separate local server
+does not update GitHub Pages automatically.
+
+### Optional self-hosted admin persistence
+
 Use one Node server process on a VPS/server/container behind an HTTPS reverse proxy.
 Deploy `server/`, `dist/portfolio/browser/`, `package.json`, and `package-lock.json`,
 then install runtime dependencies with `npm ci --omit=dev` and run `npm run server`.
@@ -104,8 +136,9 @@ atomic replacement requires creating and renaming a neighboring temporary file.
 Copy the supplied `data/portfolio.json` into that directory **once**, before the first
 start. Give the service user read/write access to the directory and file. Keep it
 outside the deployment checkout and retain the volume across deployments. Back it up;
-never replace it with the repository seed on subsequent deployments. The server fails
-on missing/invalid JSON rather than silently overwriting existing content.
+never replace it with the repository seed on subsequent deployments. The server logs
+missing/invalid JSON and rejects editing until it is repaired; public loading falls
+back to the bundled snapshot rather than overwriting the saved file.
 
 Ephemeral or read-only hosts cannot retain these edits. Use a persistent local volume;
 no cloud database is involved. Run a single writer process (no clustered replicas).
@@ -124,11 +157,16 @@ npx playwright install chromium
 npm run test:admin
 ```
 
-The browser test starts an isolated server on port 3107 with a temporary copy of the
+The admin browser test starts an isolated server on port 3107 with a temporary copy of the
 content. It checks protected access, correct/incorrect passwords, cookie flags,
 validation/CSRF/conflict rejection, adding/removing/editing through the editor,
 public refresh, persistence after a real server restart, and logout. It leaves the
 repository's portfolio content unchanged.
+
+Static production tests serve only files from the built output on port 3108. They
+verify root refresh, local assets/data without any API requests, missing/malformed
+content fallback, and direct admin navigation without a backend. The admin test also
+checks that corrupt saved JSON cannot prevent public loading, including after restart.
 
 Set the real domain in [`src/index.html`](src/index.html): `og:url`, and absolute URLs
 for `og:image` / `twitter:image` (social scrapers generally require absolute URLs).

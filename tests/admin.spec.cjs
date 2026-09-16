@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const { spawn } = require('node:child_process');
-const { mkdtemp, copyFile, readFile, rm } = require('node:fs/promises');
+const { mkdtemp, copyFile, readFile, writeFile, rm } = require('node:fs/promises');
 const { tmpdir } = require('node:os');
 const path = require('node:path');
 let directory, server;
@@ -12,7 +12,8 @@ async function start() {
   });
   await new Promise((resolve, reject) => {
     server.stdout.on('data', data => { if (data.toString().includes('listening')) resolve(); });
-    server.stderr.on('data', data => reject(new Error(data.toString())));
+    // Persistence failures are logged but must not prevent the public server starting.
+    server.stderr.on('data', () => {});
     server.on('exit', code => reject(new Error(`Server exited: ${code}`)));
   });
 }
@@ -97,4 +98,11 @@ test('protected editor, validation, browser save, public refresh, restart and lo
   await expect(page).toHaveURL(/\/admin\/login$/);
   expect((await api.get('/api/admin/content')).status()).toBe(401);
   expect(errors).toEqual([]);
+  await writeFile(path.join(directory, 'portfolio.json'), '{broken');
+  await publicPage.reload();
+  const seed = require('../data/portfolio.json');
+  await expect(publicPage.getByText(seed.hero.intro, { exact: true })).toBeVisible();
+  await stop(); await start();
+  await publicPage.reload();
+  await expect(publicPage.getByText(seed.hero.intro, { exact: true })).toBeVisible();
 });

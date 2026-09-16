@@ -21,6 +21,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/portfolio",
+            "baseHref": "/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -32,6 +33,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "portfolio.json",
+                "input": "data",
+                "output": "data"
               }
             ],
             "styles": [
@@ -102,7 +108,8 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/MustafaDandan/"
+            "baseHref": "/",
+            "noBuild": true
           }
         }
       }

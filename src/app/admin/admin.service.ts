@@ -9,6 +9,9 @@ export class AdminService {
       headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'PortfolioAdmin', 'X-Admin-CSRF': this.csrf },
       body: body === undefined ? undefined : JSON.stringify(body),
     });
+    if (!response.headers.get('content-type')?.includes('application/json')) {
+      throw new Error('Admin editing requires the optional self-hosted server. GitHub Pages serves the public portfolio but cannot authenticate or save edits.');
+    }
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || 'Request failed. Please try again.');
     return result as T;
