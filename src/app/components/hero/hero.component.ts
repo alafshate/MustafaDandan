@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { IconComponent } from '../../shared/icon/icon.component';
-import { portfolioData } from '../../data/portfolio.data';
+import { inject } from '@angular/core';
+import { PortfolioService } from '../../services/portfolio.service';
 
 @Component({
   selector: 'app-hero',
@@ -11,10 +12,10 @@ import { portfolioData } from '../../data/portfolio.data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroComponent {
-  readonly data = portfolioData;
+  readonly data = inject(PortfolioService).data;
 
   /** The positioning line, split on its separators so each role can be spaced. */
-  readonly titleParts = portfolioData.personal.title
+  readonly titleParts = this.data.personal.title
     .split('·')
     .map((part) => part.trim())
     .filter(Boolean);

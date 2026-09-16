@@ -3,10 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently -k \"npm:server\" \"npm:dev:angular\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dev:angular": "ng serve --proxy-config proxy.conf.json",
+    "server": "node server/server.mjs",
+    "schema:generate": "node scripts/generate-schema.mjs",
+    "check:server": "node --check server/server.mjs",
+    "test:admin": "playwright test"
   },
   "private": true,
   "dependencies": {
@@ -17,6 +22,8 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "ajv": "^8.20.0",
+    "express": "^5.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -25,8 +32,10 @@
     "@angular-devkit/build-angular": "^19.2.22",
     "@angular/cli": "^19.2.22",
     "@angular/compiler-cli": "^19.2.0",
+    "@playwright/test": "^1.63.0",
     "@types/jasmine": "~5.1.0",
     "angular-cli-ghpages": "^3.1.0",
+    "concurrently": "^9.2.4",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

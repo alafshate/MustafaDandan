@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { IconComponent } from '../../shared/icon/icon.component';
 import { SectionHeaderComponent } from '../../shared/section-header/section-header.component';
 import { RevealDirective } from '../../directives/reveal.directive';
-import { portfolioData } from '../../data/portfolio.data';
+import { inject } from '@angular/core';
+import { PortfolioService } from '../../services/portfolio.service';
 
 @Component({
   selector: 'app-skills',
@@ -13,6 +14,6 @@ import { portfolioData } from '../../data/portfolio.data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent {
-  readonly data = portfolioData;
-  readonly section = portfolioData.sections.skills;
+  readonly data = inject(PortfolioService).data;
+  readonly section = this.data.sections.skills;
 }

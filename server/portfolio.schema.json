@@ -1,0 +1,1038 @@
+{
+  "type": "object",
+  "properties": {
+    "personal": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "initials": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "shortTitle": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "location": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "phoneDisplay": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "profileImage": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "profileImageAlt": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "resumeUrl": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "maxLength": 10000
+            }
+          ]
+        },
+        "resumeFileName": {
+          "type": "string",
+          "maxLength": 10000
+        }
+      },
+      "required": [
+        "name",
+        "initials",
+        "title",
+        "shortTitle",
+        "location",
+        "email",
+        "phone",
+        "phoneDisplay",
+        "profileImage",
+        "profileImageAlt",
+        "resumeUrl",
+        "resumeFileName"
+      ],
+      "additionalProperties": false
+    },
+    "socials": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "href": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "icon": {
+            "type": "string",
+            "enum": [
+              "mail",
+              "phone",
+              "map-pin",
+              "linkedin",
+              "download",
+              "arrow-right",
+              "arrow-up-right",
+              "menu",
+              "close",
+              "sun",
+              "moon",
+              "layers",
+              "compass",
+              "scan",
+              "cpu",
+              "route",
+              "git-branch",
+              "file-text",
+              "award",
+              "graduation-cap",
+              "briefcase",
+              "check",
+              "box",
+              "globe",
+              "shield-check",
+              "users",
+              "code",
+              "sparkles",
+              "ruler"
+            ]
+          },
+          "display": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "external": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "label",
+          "href",
+          "icon"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "nav": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "id": {
+            "type": "string",
+            "maxLength": 10000
+          }
+        },
+        "required": [
+          "label",
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "sections": {
+      "type": "object",
+      "properties": {
+        "about": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "eyebrow": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "title": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "lead": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          },
+          "required": [
+            "index",
+            "eyebrow",
+            "title",
+            "lead"
+          ],
+          "additionalProperties": false
+        },
+        "experience": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "eyebrow": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "title": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "lead": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          },
+          "required": [
+            "index",
+            "eyebrow",
+            "title",
+            "lead"
+          ],
+          "additionalProperties": false
+        },
+        "projects": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "eyebrow": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "title": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "lead": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          },
+          "required": [
+            "index",
+            "eyebrow",
+            "title",
+            "lead"
+          ],
+          "additionalProperties": false
+        },
+        "skills": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "eyebrow": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "title": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "lead": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          },
+          "required": [
+            "index",
+            "eyebrow",
+            "title",
+            "lead"
+          ],
+          "additionalProperties": false
+        },
+        "education": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "eyebrow": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "title": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "lead": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          },
+          "required": [
+            "index",
+            "eyebrow",
+            "title",
+            "lead"
+          ],
+          "additionalProperties": false
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "eyebrow": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "title": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "lead": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          },
+          "required": [
+            "index",
+            "eyebrow",
+            "title",
+            "lead"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "about",
+        "experience",
+        "projects",
+        "skills",
+        "education",
+        "contact"
+      ],
+      "additionalProperties": false
+    },
+    "hero": {
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "focusAreas": {
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "string",
+            "maxLength": 10000
+          }
+        },
+        "intro": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "facts": {
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "maxLength": 10000
+              },
+              "value": {
+                "type": "string",
+                "maxLength": 10000
+              },
+              "icon": {
+                "type": "string",
+                "enum": [
+                  "mail",
+                  "phone",
+                  "map-pin",
+                  "linkedin",
+                  "download",
+                  "arrow-right",
+                  "arrow-up-right",
+                  "menu",
+                  "close",
+                  "sun",
+                  "moon",
+                  "layers",
+                  "compass",
+                  "scan",
+                  "cpu",
+                  "route",
+                  "git-branch",
+                  "file-text",
+                  "award",
+                  "graduation-cap",
+                  "briefcase",
+                  "check",
+                  "box",
+                  "globe",
+                  "shield-check",
+                  "users",
+                  "code",
+                  "sparkles",
+                  "ruler"
+                ]
+              }
+            },
+            "required": [
+              "label",
+              "value",
+              "icon"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "primaryCta": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "targetId": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          },
+          "required": [
+            "label",
+            "targetId"
+          ],
+          "additionalProperties": false
+        },
+        "secondaryCta": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "maxLength": 10000
+            },
+            "targetId": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          },
+          "required": [
+            "label",
+            "targetId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "eyebrow",
+        "focusAreas",
+        "intro",
+        "facts",
+        "primaryCta",
+        "secondaryCta"
+      ],
+      "additionalProperties": false
+    },
+    "about": {
+      "type": "object",
+      "properties": {
+        "paragraphs": {
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "string",
+            "maxLength": 10000
+          }
+        },
+        "highlights": {
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "object",
+            "properties": {
+              "icon": {
+                "type": "string",
+                "enum": [
+                  "mail",
+                  "phone",
+                  "map-pin",
+                  "linkedin",
+                  "download",
+                  "arrow-right",
+                  "arrow-up-right",
+                  "menu",
+                  "close",
+                  "sun",
+                  "moon",
+                  "layers",
+                  "compass",
+                  "scan",
+                  "cpu",
+                  "route",
+                  "git-branch",
+                  "file-text",
+                  "award",
+                  "graduation-cap",
+                  "briefcase",
+                  "check",
+                  "box",
+                  "globe",
+                  "shield-check",
+                  "users",
+                  "code",
+                  "sparkles",
+                  "ruler"
+                ]
+              },
+              "title": {
+                "type": "string",
+                "maxLength": 10000
+              },
+              "description": {
+                "type": "string",
+                "maxLength": 10000
+              }
+            },
+            "required": [
+              "icon",
+              "title",
+              "description"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "paragraphs",
+        "highlights"
+      ],
+      "additionalProperties": false
+    },
+    "education": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "properties": {
+          "institution": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "degree": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "field": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "location": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "period": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "current": {
+            "type": "boolean"
+          },
+          "achievements": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          }
+        },
+        "required": [
+          "institution",
+          "degree",
+          "field",
+          "location",
+          "period",
+          "current",
+          "achievements"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "experience": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "properties": {
+          "company": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "role": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "employmentType": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "location": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "period": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "current": {
+            "type": "boolean"
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "bullets": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          },
+          "tags": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          }
+        },
+        "required": [
+          "company",
+          "role",
+          "employmentType",
+          "location",
+          "period",
+          "current",
+          "summary",
+          "bullets",
+          "tags"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "projects": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "context": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "period": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "category": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "icon": {
+            "type": "string",
+            "enum": [
+              "mail",
+              "phone",
+              "map-pin",
+              "linkedin",
+              "download",
+              "arrow-right",
+              "arrow-up-right",
+              "menu",
+              "close",
+              "sun",
+              "moon",
+              "layers",
+              "compass",
+              "scan",
+              "cpu",
+              "route",
+              "git-branch",
+              "file-text",
+              "award",
+              "graduation-cap",
+              "briefcase",
+              "check",
+              "box",
+              "globe",
+              "shield-check",
+              "users",
+              "code",
+              "sparkles",
+              "ruler"
+            ]
+          },
+          "featured": {
+            "type": "boolean"
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "bullets": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          },
+          "specs": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "maxLength": 10000
+                },
+                "value": {
+                  "type": "string",
+                  "maxLength": 10000
+                }
+              },
+              "required": [
+                "label",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "tech": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          },
+          "outcome": {
+            "type": "string",
+            "maxLength": 10000
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "context",
+          "period",
+          "category",
+          "icon",
+          "featured",
+          "summary",
+          "bullets",
+          "specs",
+          "tech",
+          "outcome"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "skills": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "icon": {
+            "type": "string",
+            "enum": [
+              "mail",
+              "phone",
+              "map-pin",
+              "linkedin",
+              "download",
+              "arrow-right",
+              "arrow-up-right",
+              "menu",
+              "close",
+              "sun",
+              "moon",
+              "layers",
+              "compass",
+              "scan",
+              "cpu",
+              "route",
+              "git-branch",
+              "file-text",
+              "award",
+              "graduation-cap",
+              "briefcase",
+              "check",
+              "box",
+              "globe",
+              "shield-check",
+              "users",
+              "code",
+              "sparkles",
+              "ruler"
+            ]
+          },
+          "items": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          }
+        },
+        "required": [
+          "category",
+          "icon",
+          "items"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "credentials": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "issuer": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "detail": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "award",
+              "honour",
+              "certification"
+            ]
+          },
+          "icon": {
+            "type": "string",
+            "enum": [
+              "mail",
+              "phone",
+              "map-pin",
+              "linkedin",
+              "download",
+              "arrow-right",
+              "arrow-up-right",
+              "menu",
+              "close",
+              "sun",
+              "moon",
+              "layers",
+              "compass",
+              "scan",
+              "cpu",
+              "route",
+              "git-branch",
+              "file-text",
+              "award",
+              "graduation-cap",
+              "briefcase",
+              "check",
+              "box",
+              "globe",
+              "shield-check",
+              "users",
+              "code",
+              "sparkles",
+              "ruler"
+            ]
+          }
+        },
+        "required": [
+          "title",
+          "issuer",
+          "detail",
+          "type",
+          "icon"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "languages": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "level": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "proficiency": {
+            "type": "number",
+            "enum": [
+              1,
+              2,
+              3
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "level",
+          "proficiency"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "contactChannels": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "value": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "href": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "maxLength": 10000
+              }
+            ]
+          },
+          "icon": {
+            "type": "string",
+            "enum": [
+              "mail",
+              "phone",
+              "map-pin",
+              "linkedin",
+              "download",
+              "arrow-right",
+              "arrow-up-right",
+              "menu",
+              "close",
+              "sun",
+              "moon",
+              "layers",
+              "compass",
+              "scan",
+              "cpu",
+              "route",
+              "git-branch",
+              "file-text",
+              "award",
+              "graduation-cap",
+              "briefcase",
+              "check",
+              "box",
+              "globe",
+              "shield-check",
+              "users",
+              "code",
+              "sparkles",
+              "ruler"
+            ]
+          },
+          "external": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "label",
+          "value",
+          "href",
+          "icon"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "personal",
+    "socials",
+    "nav",
+    "sections",
+    "hero",
+    "about",
+    "education",
+    "experience",
+    "projects",
+    "skills",
+    "credentials",
+    "languages",
+    "contactChannels"
+  ],
+  "additionalProperties": false
+}

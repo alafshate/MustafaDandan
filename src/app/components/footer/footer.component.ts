@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { IconComponent } from '../../shared/icon/icon.component';
-import { portfolioData } from '../../data/portfolio.data';
+import { inject } from '@angular/core';
+import { PortfolioService } from '../../services/portfolio.service';
 
 @Component({
   selector: 'app-footer',
@@ -11,6 +12,6 @@ import { portfolioData } from '../../data/portfolio.data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
-  readonly data = portfolioData;
+  readonly data = inject(PortfolioService).data;
   readonly year = new Date().getFullYear();
 }

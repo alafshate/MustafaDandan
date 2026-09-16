@@ -8,7 +8,8 @@ import {
 } from '@angular/core';
 import { IconComponent } from '../../shared/icon/icon.component';
 import { ThemeToggleComponent } from '../../shared/theme-toggle/theme-toggle.component';
-import { portfolioData } from '../../data/portfolio.data';
+import { inject } from '@angular/core';
+import { PortfolioService } from '../../services/portfolio.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +20,7 @@ import { portfolioData } from '../../data/portfolio.data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent implements AfterViewInit, OnDestroy {
-  readonly data = portfolioData;
+  readonly data = inject(PortfolioService).data;
 
   readonly scrolled = signal(false);
   readonly menuOpen = signal(false);

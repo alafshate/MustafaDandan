@@ -1,10 +1,9 @@
 /**
  * Typed contract for every piece of content rendered on the site.
  *
- * Components never hardcode résumé content — they read `portfolioData`
- * (src/app/data/portfolio.data.ts), which is validated against these types.
- * Adding an experience, project or skill group is a matter of appending one
- * more object to the corresponding array in the data file.
+ * Public components consume this contract through PortfolioService.
+ * Runtime content lives in data/portfolio.json and is validated by the server.
+ * Run npm run schema:generate after changing these models.
  */
 
 /** Every icon the UI can render. Adding a name here requires a matching case in IconComponent. */
