@@ -1,0 +1,492 @@
+{
+  "personal": {
+    "name": "Mustafa Dandan",
+    "initials": "MD",
+    "title": "Civil Engineer · VDC & BIM Designer · Infrastructure & Digital Construction",
+    "shortTitle": "Civil Engineer | VDC & BIM Designer",
+    "location": "Mississauga, Ontario",
+    "email": "mustafa.dandan77@gmail.com",
+    "phone": "+16475042017",
+    "phoneDisplay": "+1 (647) 504-2017",
+    "profileImage": "md_pp.jpg",
+    "profileImageAlt": "Portrait of Mustafa Dandan, Civil Engineer and VDC & BIM Designer",
+    "resumeUrl": "Mustafa-Dandan-Resume.pdf",
+    "resumeFileName": "Mustafa-Dandan-Resume.pdf"
+  },
+  "socials": [
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/mustafa-dandan",
+      "icon": "linkedin",
+      "display": "in/mustafa-dandan",
+      "external": true
+    }
+  ],
+  "nav": [
+    {
+      "label": "About",
+      "id": "about"
+    },
+    {
+      "label": "Experience",
+      "id": "experience"
+    },
+    {
+      "label": "Projects",
+      "id": "projects"
+    },
+    {
+      "label": "Skills",
+      "id": "skills"
+    },
+    {
+      "label": "Education",
+      "id": "education"
+    },
+    {
+      "label": "Contact",
+      "id": "contact"
+    }
+  ],
+  "sections": {
+    "about": {
+      "index": "01",
+      "eyebrow": "About",
+      "title": "Engineering design, delivered digitally",
+      "lead": ""
+    },
+    "experience": {
+      "index": "02",
+      "eyebrow": "Experience",
+      "title": "Virtual Design & Construction at Modern Niagara",
+      "lead": "From co-op to full-time VDC design: modeling, coordination and fabrication support on active mechanical construction projects."
+    },
+    "projects": {
+      "index": "03",
+      "eyebrow": "Projects",
+      "title": "Design work, drawn and coordinated",
+      "lead": "Transportation and infrastructure design projects taken from concept through coordinated engineering drawings."
+    },
+    "skills": {
+      "index": "04",
+      "eyebrow": "Skills",
+      "title": "Software and disciplines",
+      "lead": "The tools and technical areas I work in day to day, grouped by how they are used on a project."
+    },
+    "education": {
+      "index": "05",
+      "eyebrow": "Education & Credentials",
+      "title": "Academic background",
+      "lead": "Civil Engineering at Toronto Metropolitan University, from the bachelor’s degree through to a master’s in progress."
+    },
+    "contact": {
+      "index": "06",
+      "eyebrow": "Contact",
+      "title": "Let’s work together",
+      "lead": "Open to VDC/BIM, civil design, and transportation and infrastructure design opportunities. The fastest way to reach me is by email."
+    }
+  },
+  "hero": {
+    "eyebrow": "Civil Engineering · Virtual Design & Construction",
+    "focusAreas": [
+      "VDC / BIM",
+      "Revit Modeling",
+      "BIM Coordination",
+      "Transportation Design",
+      "LiDAR Capture"
+    ],
+    "intro": "I turn engineering design intent into coordinated, buildable models. Currently a VDC Designer at Modern Niagara — modeling piping systems, running BIM coordination and clash detection, and capturing existing conditions with Trimble LiDAR — while completing an MEng in Civil Engineering at Toronto Metropolitan University.",
+    "facts": [
+      {
+        "label": "Current role",
+        "value": "VDC Designer · Modern Niagara",
+        "icon": "briefcase"
+      },
+      {
+        "label": "Education",
+        "value": "MEng Civil Engineering · TMU",
+        "icon": "graduation-cap"
+      },
+      {
+        "label": "Based in",
+        "value": "Mississauga, Ontario",
+        "icon": "map-pin"
+      }
+    ],
+    "primaryCta": {
+      "label": "View Projects",
+      "targetId": "projects"
+    },
+    "secondaryCta": {
+      "label": "Get in Touch",
+      "targetId": "contact"
+    }
+  },
+  "about": {
+    "paragraphs": [
+      "I am a Civil Engineering graduate of Toronto Metropolitan University, now pursuing an MEng there while working as a VDC Designer at Modern Niagara. My work sits between engineering design and digital construction: developing and coordinating BIM models, producing fabrication-ready deliverables, and making sure what gets modeled can actually be installed in the field.",
+      "My technical range covers Revit, AutoCAD, Civil 3D, Navisworks and Bluebeam Revu — applied to piping systems and spool drawings, clash detection, existing-condition capture with Trimble LiDAR, and roadway, intersection and multimodal transportation design. I set up Revit environments, including model structures, templates and shared parameters, and build custom parametric families so recurring components stay standardized across projects.",
+      "I enjoy combining engineering and design workflows with modern technology. I use AI tools to improve my own productivity, and at Modern Niagara I collaborated with a software engineer on AI-powered tools intended to improve and automate Revit workflows — part of a wider interest in where VDC and software meet."
+    ],
+    "highlights": [
+      {
+        "icon": "layers",
+        "title": "VDC & BIM",
+        "description": "Revit modeling, clash detection and multidisciplinary coordination, carried from design through fabrication and installation."
+      },
+      {
+        "icon": "route",
+        "title": "Transportation Design",
+        "description": "Roadway geometry, intersection design and multimodal corridors drafted against transportation design standards."
+      },
+      {
+        "icon": "scan",
+        "title": "Existing Conditions",
+        "description": "Trimble LiDAR scanning and Autodesk ReCap workflows that ground coordination decisions in real field data."
+      },
+      {
+        "icon": "sparkles",
+        "title": "Technology-Forward",
+        "description": "Custom parametric Revit families and AI-assisted workflows applied to standardize and speed up repeat work."
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "Toronto Metropolitan University",
+      "degree": "Master of Engineering (MEng)",
+      "field": "Civil Engineering",
+      "location": "Toronto, Ontario",
+      "period": "January 2026 – Present",
+      "current": true,
+      "achievements": []
+    },
+    {
+      "institution": "Toronto Metropolitan University",
+      "degree": "Bachelor of Engineering (BEng)",
+      "field": "Civil Engineering",
+      "location": "Toronto, Ontario",
+      "period": "September 2020 – April 2025",
+      "current": false,
+      "achievements": [
+        "Dean’s List — Winter 2025"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Modern Niagara",
+      "role": "VDC Designer",
+      "employmentType": "Full-time",
+      "location": "Vaughan, Ontario",
+      "period": "January 2026 – Present",
+      "current": true,
+      "summary": "Delivering fabrication-ready models and coordination support across multiple active projects, and standardizing how the team models and produces deliverables.",
+      "bullets": [
+        "Trained and supported 4 team members on standardized modeling and deliverable workflows across multiple active projects.",
+        "Modeled piping systems and produced detailed spool drawings using Autodesk Revit to support fabrication accuracy and installation.",
+        "Completed LiDAR scans using Trimble equipment to capture accurate existing site conditions.",
+        "Set up and organized Revit environments, including model structures, templates and shared parameters.",
+        "Supported BIM coordination and clash detection to identify conflicts before field installation.",
+        "Resolved modeling and coordination issues with engineers, designers and multidisciplinary project teams.",
+        "Developed custom parametric Revit families to standardize recurring project components and improve model production.",
+        "Collaborated with a software engineer on AI tools for Revit workflow and productivity improvements."
+      ],
+      "tags": [
+        "Autodesk Revit",
+        "Spool Drawings",
+        "BIM Coordination",
+        "Clash Detection",
+        "Trimble LiDAR",
+        "Shared Parameters",
+        "Parametric Families",
+        "AI Workflow Tools"
+      ]
+    },
+    {
+      "company": "Modern Niagara",
+      "role": "VDC Designer Co-op",
+      "employmentType": "Co-op",
+      "location": "Vaughan, Ontario",
+      "period": "May 2024 – October 2024",
+      "current": false,
+      "summary": "Supported BIM model development and multidisciplinary coordination on active projects, from design review through fabrication handover.",
+      "bullets": [
+        "Developed and maintained 3D BIM models based on project specifications and industry standards.",
+        "Participated in multidisciplinary design coordination meetings.",
+        "Supported fabrication-focused modeling and installation planning.",
+        "Reviewed design alignment across multiple trades and identified clashes before construction.",
+        "Prepared schematics, workflows and handover documentation."
+      ],
+      "tags": [
+        "3D BIM Modeling",
+        "Design Coordination",
+        "Fabrication Modeling",
+        "Clash Review",
+        "Technical Documentation"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "capstone-cvl72",
+      "title": "Urban Transit Corridor Capstone",
+      "context": "CVL72A/B · Toronto Metropolitan University",
+      "period": "September 2024 – April 2025",
+      "category": "Transportation Infrastructure Design",
+      "icon": "route",
+      "featured": true,
+      "summary": "Led design work for two urban transportation infrastructure concepts — Scarborough Town Centre transit integration and the Jane & Finch LRT corridor — coordinating roadway, transit, pedestrian and cycling requirements into a single multimodal cross-section.",
+      "bullets": [
+        "Coordinated roadway, transit, pedestrian and cycling requirements across both concepts.",
+        "Developed an approximately 36 m multimodal roadway cross-section in AutoCAD.",
+        "Applied roadway geometric design and transportation safety principles throughout the layout.",
+        "Produced and revised transportation engineering drawings using AutoCAD and Bluebeam Revu.",
+        "Identified and resolved geometric and spatial conflicts during design review.",
+        "Coordinated documentation, revisions and team responsibilities across the project."
+      ],
+      "specs": [
+        {
+          "label": "Roadway cross-section",
+          "value": "≈ 36 m"
+        },
+        {
+          "label": "Vehicle lanes",
+          "value": "≈ 3.3 m"
+        },
+        {
+          "label": "Cycling facilities",
+          "value": "1.6 m"
+        },
+        {
+          "label": "Sidewalks",
+          "value": "2.1 m"
+        },
+        {
+          "label": "LRT right-of-way",
+          "value": "≈ 7.4 m"
+        }
+      ],
+      "tech": [
+        "AutoCAD",
+        "Bluebeam Revu",
+        "Roadway & Intersection Design",
+        "2D Civil Drafting",
+        "Multimodal Transportation Design"
+      ],
+      "outcome": "Final grade: A+"
+    },
+    {
+      "id": "roadway-cvl207",
+      "title": "Roadway & Intersection Design",
+      "context": "CVL207 · Toronto Metropolitan University",
+      "period": "",
+      "category": "Roadway Geometric Design",
+      "icon": "compass",
+      "featured": false,
+      "summary": "A detailed 2D AutoCAD roadway and intersection design incorporating multiple transportation infrastructure components, developed into a coordinated final drawing package.",
+      "bullets": [
+        "Developed a detailed 2D AutoCAD roadway and intersection design.",
+        "Incorporated multiple transportation infrastructure components into the layout.",
+        "Applied roadway layout and geometric design principles.",
+        "Prepared coordinated engineering drawings.",
+        "Evaluated vehicle circulation, intersection functionality, surrounding site constraints and environmental considerations.",
+        "Revised geometry, dimensions and presentation into a coordinated final package."
+      ],
+      "specs": [],
+      "tech": [
+        "AutoCAD",
+        "2D Civil Drafting",
+        "Roadway Layout",
+        "Intersection Design",
+        "Geometric Design"
+      ],
+      "outcome": "Final grade: A+"
+    },
+    {
+      "id": "geology-cvl423",
+      "title": "Volcano Phases Modeling Study",
+      "context": "CVL423 · Toronto Metropolitan University",
+      "period": "",
+      "category": "Engineering Visualization",
+      "icon": "box",
+      "featured": false,
+      "summary": "Research on volcano phases paired with a detailed AutoCAD structural model, awarded Best Project for combining engineering visualization with geological research.",
+      "bullets": [
+        "Awarded Best Project for research on volcano phases.",
+        "Created a detailed volcano structure and model using AutoCAD.",
+        "Integrated engineering visualization with geological research."
+      ],
+      "specs": [],
+      "tech": [
+        "AutoCAD",
+        "3D Modeling",
+        "Geological Research",
+        "Technical Presentation"
+      ],
+      "outcome": "Best Project Award"
+    },
+    {
+      "id": "cpp-binary-search",
+      "title": "C++ Binary Search Application",
+      "context": "Team project · Lead of four",
+      "period": "",
+      "category": "Software & Algorithms",
+      "icon": "code",
+      "featured": false,
+      "summary": "An optimized binary search algorithm built in C++ with a user-friendly interface, developed as the lead of a four-person team.",
+      "bullets": [
+        "Developed an optimized binary search algorithm using the Geany IDE.",
+        "Led a team of four through the build.",
+        "Built a user-friendly interface for the application."
+      ],
+      "specs": [],
+      "tech": [
+        "C++",
+        "Geany IDE",
+        "Algorithm Design",
+        "Team Leadership"
+      ],
+      "outcome": "Project grade: 100%"
+    }
+  ],
+  "skills": [
+    {
+      "category": "CAD, BIM & Design",
+      "icon": "layers",
+      "items": [
+        "AutoCAD",
+        "Civil 3D",
+        "Autodesk Revit",
+        "Navisworks",
+        "Bluebeam Revu",
+        "Autodesk ReCap",
+        "2D Civil Drafting",
+        "Engineering Drawing Preparation",
+        "Trimble FieldLink"
+      ]
+    },
+    {
+      "category": "Transportation & Civil",
+      "icon": "route",
+      "items": [
+        "Roadway Geometric Design",
+        "Intersection Design",
+        "Roadway Layout",
+        "Multimodal Transportation Design",
+        "Transportation Design Standards",
+        "HCS",
+        "Synchro"
+      ]
+    },
+    {
+      "category": "VDC & Coordination",
+      "icon": "git-branch",
+      "items": [
+        "BIM",
+        "Multidisciplinary Design Coordination",
+        "Drawing & Model Review",
+        "Clash Detection",
+        "Existing Conditions / LiDAR Capture",
+        "Technical Documentation",
+        "Constructability Coordination",
+        "Fabrication-Focused Modeling",
+        "Revit Families / Parametric Modeling"
+      ]
+    },
+    {
+      "category": "Additional Technical",
+      "icon": "cpu",
+      "items": [
+        "MATLAB",
+        "C++",
+        "MS Office Suite",
+        "AI-Assisted Engineering & Productivity Tools"
+      ]
+    },
+    {
+      "category": "Engineering & Construction",
+      "icon": "ruler",
+      "items": [
+        "Structural, Transportation & Mechanical Systems Design Integration",
+        "Cost Estimation",
+        "Budgeting",
+        "Scheduling",
+        "Standards & Specifications Compliance"
+      ]
+    },
+    {
+      "category": "Professional",
+      "icon": "users",
+      "items": [
+        "Critical Thinking",
+        "Problem Solving",
+        "Effective Communication",
+        "Teamwork & Collaboration",
+        "Multitasking",
+        "Attention to Detail",
+        "Conflict Resolution"
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "title": "Dean’s List",
+      "issuer": "Toronto Metropolitan University",
+      "detail": "Winter 2025",
+      "type": "honour",
+      "icon": "award"
+    },
+    {
+      "title": "Best Project Award — CVL423",
+      "issuer": "Toronto Metropolitan University",
+      "detail": "Geology project on volcano phases",
+      "type": "award",
+      "icon": "award"
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Fluent",
+      "proficiency": 3
+    },
+    {
+      "name": "Arabic",
+      "level": "Fluent",
+      "proficiency": 3
+    },
+    {
+      "name": "French",
+      "level": "Beginner",
+      "proficiency": 1
+    }
+  ],
+  "contactChannels": [
+    {
+      "label": "Email",
+      "value": "mustafa.dandan77@gmail.com",
+      "href": "mailto:mustafa.dandan77@gmail.com",
+      "icon": "mail"
+    },
+    {
+      "label": "Phone",
+      "value": "+1 (647) 504-2017",
+      "href": "tel:+16475042017",
+      "icon": "phone"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "in/mustafa-dandan",
+      "href": "https://www.linkedin.com/in/mustafa-dandan",
+      "icon": "linkedin",
+      "external": true
+    },
+    {
+      "label": "Location",
+      "value": "Mississauga, Ontario",
+      "href": null,
+      "icon": "map-pin"
+    }
+  ]
+}
