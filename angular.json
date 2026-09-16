@@ -47,6 +47,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/MustafaDandan/",
               "budgets": [
                 {
                   "type": "initial",
@@ -108,7 +109,8 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/",
+            "baseHref": "/MustafaDandan/",
+            "dir": "dist/portfolio/browser",
             "noBuild": true
           }
         }
